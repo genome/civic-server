@@ -100,6 +100,7 @@ Rails.application.routes.draw do
     resources 'variants', except: [:edit] do
       get 'myvariant_info_proxy' => 'variants#myvariant_info_proxy'
       get 'allele_registry_proxy' => 'variants#allele_registry_proxy'
+      get 'mane_preferred_transcript' => 'variants#mane_preferred_transcript'
       get 'evidence_items' => 'evidence_items#variant_index'
       get 'variant_groups' => 'variant_groups#variant_index'
       get 'assertions' => 'assertions#variant_index'

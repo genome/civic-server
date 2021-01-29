@@ -2,8 +2,8 @@ class VariantsController < ApplicationController
   include WithComment
   include WithSoftDeletion
 
-  actions_without_auth :index, :show, :typeahead_results, :datatable, :gene_index, :entrez_gene_index, :variant_group_index, :myvariant_info_proxy, :allele_registry_proxy, :variant_navigation
-  skip_analytics :typeahead_results, :myvariant_info_proxy, :allele_registry_proxy
+  actions_without_auth :index, :show, :typeahead_results, :datatable, :gene_index, :entrez_gene_index, :variant_group_index, :myvariant_info_proxy, :allele_registry_proxy, :mane_preferred_transcript, :variant_navigation
+  skip_analytics :typeahead_results, :myvariant_info_proxy, :allele_registry_proxy, :mane_preferred_transcript
 
   def index
     variants = Variant.index_scope
@@ -76,6 +76,10 @@ class VariantsController < ApplicationController
 
   def allele_registry_proxy
     render json: AlleleRegistry.new(params[:variant_id]).response
+  end
+
+  def mane_preferred_transcript
+    render json: ManePreferredTranscript.new(params[:variant_id]).mane_preferred_transcript
   end
 
   private
