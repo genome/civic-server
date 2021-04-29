@@ -36,6 +36,8 @@ gem 'omniauth-github', '~> 1.4.0'
 gem 'omniauth-google-oauth2', '~> 0.7.0'
 gem 'omniauth-orcid', '~> 2.1.1'
 
+gem 'aws-sdk-s3', '~> 1.94.0'
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'fabrication'
